@@ -1,0 +1,20 @@
+﻿@model EPOLL.Website.ApiModels.PollApiModel
+
+@{
+    ViewData["Title"] = "Perform";
+}
+
+<h2>Complete your poll</h2>
+
+<div>@Model.Question</div>
+
+<form method="post">
+    <input type="hidden" asp-for="PollId" />
+    <input type="hidden" asp-for="QuestionId" />
+    <input type="radio" name="AnswerId" value="@Model.Answer1Id" />@Model.Answer1<br />
+    <input type="radio" name="AnswerId" value="@Model.Answer2Id" />@Model.Answer2<br />
+    <input type="radio" name="AnswerId" value="@Model.Answer3Id" />@Model.Answer3<br />
+    <input type="radio" name="AnswerId" value="@Model.Answer4Id" />@Model.Answer4<br />
+    <input type="submit" />
+</form>
+

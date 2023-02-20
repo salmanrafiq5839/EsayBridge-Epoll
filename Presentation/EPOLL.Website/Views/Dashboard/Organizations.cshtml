@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EPOLL.Website.ApiModels.OrganizationPostModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="divcenter"><h2>Organizations</h2></div>
+<br />
+
+
+<p>
+    <a asp-action="createorg">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    <a asp-action="OrgEdit" asp-route-id="@item.OrganizationId">Edit</a> |
+                    <a asp-action="OrgDetails" asp-route-id="@item.OrganizationId">Details</a> |
+                    <a asp-action="OrgDelete" asp-route-id="@item.OrganizationId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,18 @@
+﻿@model OrganizationAdminStats
+
+@{
+    Layout = "LayoutAdmin";
+    ViewData["Title"] = "Organization Dashboard";
+}
+
+
+<div class="divcenter"><h2>Organization Dashboard</h2></div>
+<br />
+
+<div class="row">
+    <div class="col-md-3"><div class="divcenter">Polls <br />@Model.PollsCount</div></div>
+    <div class="col-md-3"><div class="divcenter">Groups <br />@Model.GroupsCount</div></div>
+    <div class="col-md-3"><div class="divcenter">Users <br />@Model.UsersCount</div></div>
+</div>
+
+

@@ -1,0 +1,65 @@
+﻿@model List<PollApiModel>
+@{
+    Layout = "LayoutAdmin";
+    ViewData["Title"] = "Index";
+}
+
+<h2>Reports</h2>
+
+<p>This is reporting view...</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Poll Id
+            </th>
+            <th>
+                Poll Title
+            </th>
+            <th>
+                Answer 1 Count
+            </th>
+            <th>
+                Answer 2 Count
+            </th>
+            <th>
+                Answer 3 Count
+            </th>
+            <th>
+                Answer 4 Count
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PollId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer1Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer2Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer3Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer4Count)
+            </td>
+            @*<td>
+            <a asp-action="ManageUsers" asp-route-id="@item.GroupId">Manage Users</a> |
+            <a asp-action="Edit" asp-route-id="@item.GroupId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.GroupId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.GroupId">Delete</a>
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>

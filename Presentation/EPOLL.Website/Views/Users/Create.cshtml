@@ -1,0 +1,48 @@
+﻿@model EPOLL.Website.DataAccess.IdentityCustomModels.ApplicationUser
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>Create User</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row d-flex mb-5 contact-info justify-content-center">
+            <div class="col-md-8">
+                <div style="color:red;">@ViewBag.Error</div>
+            </div>
+        </div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Organization</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.OrganizationId, (IEnumerable<SelectListItem>)ViewBag.Organizations, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

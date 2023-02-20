@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EPOLL.Website.ApiModels.OrganizationPostModel>
+
+@{
+    Layout = "LayoutAdmin";
+    ViewData["Title"] = "Index";
+}
+
+<div class="divcenter"><h2>Organizations</h2></div>
+<br />
+
+
+<p>
+    <a asp-action="create">Create New</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div>No Organizations added yet, let's add first one</div>
+}
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrganizationId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrganizationId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrganizationId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

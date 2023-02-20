@@ -1,0 +1,35 @@
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row block-9 justify-content-center mb-5">
+            <div class="col-md-8 mb-md-5">
+
+                <h2 class="text-center">Login here</h2>
+                <form asp-action="Login" method="post" class="bg-light p-5 contact-form">
+                    <div class="form-group">
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Your Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @*<a class="btn btn-primary py-3 px-5" asp-area="" asp-controller="Home" asp-action="Index">Signin</a>*@
+                        <button style="background: #1b9ce3; border: 1px solid #1b9ce3; color: #fff;" class="btn" type="submit">Login</button>
+                    </div>
+
+                    <a asp-area="" asp-controller="Account" asp-action="Register">Don't have account?</a> 
+                    <br />
+                    <a asp-area="" asp-controller="Account" asp-action="Forgot">Don't remember password?</a>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>

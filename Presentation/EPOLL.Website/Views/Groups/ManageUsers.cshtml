@@ -1,0 +1,64 @@
+﻿@model GroupUsersModel
+
+@{
+    ViewData["Title"] = "ManageUsers";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>ManageUsers</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div>Lets add Users to : @Model.GroupName</div>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Id
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Has Added?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Users) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasAdded)
+            </td>
+            <td>
+                @if (item.HasAdded)
+                {
+
+                    <a asp-action="RemoveFromGroup" asp-route-groupId="@Model.GroupId" asp-route-userId="@item.UserId">Remove</a>
+                }
+                else
+                {
+                    <a asp-action="AddToGroup" asp-route-groupId="@Model.GroupId" asp-route-userId="@item.UserId">Add</a>
+
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

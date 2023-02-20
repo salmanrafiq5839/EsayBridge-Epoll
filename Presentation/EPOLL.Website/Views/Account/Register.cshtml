@@ -1,0 +1,48 @@
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info justify-content-center">
+            <div class="col-md-8">
+                <div style="color:red;">@ViewBag.Error</div>
+            </div>
+        </div>
+        <div class="row block-9 justify-content-center mb-5">
+            <div class="col-md-8 mb-md-5">
+                <h2 class="text-center">Register new Organization today</h2>
+                <form asp-action="Register" method="post" class="bg-light p-5 contact-form">
+                    <div class="form-group">
+                        <input asp-for="Text" type="text" class="form-control" placeholder="Your Name">
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="OrganizationName" type="text" class="form-control" placeholder="Organization Name" />
+                        <span asp-validation-for="OrganizationName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Your Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        @*<a class="btn btn-primary py-3 px-5" asp-area="" asp-controller="Account"  asp-action="Index1">Register</a>*@
+                        <button  style="background: #1b9ce3; border: 1px solid #1b9ce3; color: #fff;" class="btn"  type="submit">Register</button>
+                    </div>
+
+                    <a asp-area="" asp-controller="Account" asp-action="Login">Already have account?</a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+

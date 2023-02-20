@@ -1,0 +1,53 @@
+﻿@model EPOLL.Website.ApiModels.OrganizationPostModel
+
+@{
+    Layout = "LayoutAdmin";
+    ViewData["Title"] = "Create Organization";
+}
+
+<div style="margin: 10px">
+    <h2>Create Organization</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="color:red;">@ViewBag.Error</div>
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="OrganizationId" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Detail" class="control-label"></label>
+                    <input asp-for="Detail" class="form-control" />
+                    <span asp-validation-for="Detail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AdminEmail" class="control-label"></label>
+                    <input asp-for="AdminEmail" class="form-control" />
+                    <span asp-validation-for="AdminEmail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="IsEnabled" /> @Html.DisplayNameFor(model => model.IsEnabled)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
+<div style="clear: both;"></div>

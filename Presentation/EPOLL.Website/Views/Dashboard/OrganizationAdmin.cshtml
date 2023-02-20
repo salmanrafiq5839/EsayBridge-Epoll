@@ -1,0 +1,11 @@
+﻿@model UserDashboardModel
+
+@{
+    Layout = "LayoutAdmin";
+    ViewData["Title"] = "User";
+}
+
+<h2>User</h2>
+<div>Total Users : @Model.UsersCount</div>
+<div>Total Groups : @Model.GroupCount</div>
+<div>Total Polls : @Model.PollCount</div>

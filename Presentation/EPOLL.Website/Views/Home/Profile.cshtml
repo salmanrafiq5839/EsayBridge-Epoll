@@ -1,0 +1,14 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile</h2>
+
+<div>@Model.FullName</div>
+<div>@Model.Email</div>
+
+@if(Model.Organization != null) {
+<div>Your organization is : @Model.Organization.Name</div>
+}

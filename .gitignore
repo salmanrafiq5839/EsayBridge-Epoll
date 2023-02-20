@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Presentation/EPOLL.Website/EpollDatabase.db-shm
+Presentation/EPOLL.Website/EpollDatabase.db
+Presentation/EPOLL.Website/EpollDatabase.db-wal
+Presentation/EPOLL.Website/EpollDatabase.db
+Presentation/EPOLL.Website/wwwroot/qrcodes
